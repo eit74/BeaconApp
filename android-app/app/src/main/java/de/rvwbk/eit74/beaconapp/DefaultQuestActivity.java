@@ -68,6 +68,8 @@ public class DefaultQuestActivity extends AppCompatActivity {
         btnAnswerC.setText(quest.getAnswerC());
         btnAnswerD.setText(quest.getAnswerD());
 
+        //Listener für die Auswahl der Antwort
+        //Setzt die Farbe
         for (int i = 0; i < btnAnswers.size(); i++) {
             final Button b = btnAnswers.get(i);
             final int currI = i;
@@ -82,6 +84,8 @@ public class DefaultQuestActivity extends AppCompatActivity {
             });
         }
 
+
+        //Zeigt ob die Antwort richtig oder falsch ist
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
