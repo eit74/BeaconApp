@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int questID = 123;
+        String questID = "123";
         Intent i = new Intent(this, DefaultQuestActivity.class);
         i.putExtra("QuestID", questID);
         startActivity(i);
