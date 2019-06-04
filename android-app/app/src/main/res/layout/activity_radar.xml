@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RadarActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bg_radar_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="448dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bg_radar_waves"
+            android:layout_width="wrap_content"
+            android:layout_height="718dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/bg_radarwave_4"
+                android:layout_width="710dp"
+                android:layout_height="710dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_radarwaves" />
+
+            <ImageView
+                android:id="@+id/bg_radarwave_3"
+                android:layout_width="590dp"
+                android:layout_height="590dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_radarwaves" />
+
+            <ImageView
+                android:id="@+id/bg_radarwave_2"
+                android:layout_width="470dp"
+                android:layout_height="470dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_radarwaves"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="188dp" />
+
+            <ImageView
+                android:id="@+id/bg_radarwave_1"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_radarwaves"
+                tools:layout_editor_absoluteX="29dp"
+                tools:layout_editor_absoluteY="199dp" />
+
+            <ImageView
+                android:id="@+id/bg_radarwave_0"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_radarwaves"
+                tools:layout_editor_absoluteX="90dp"
+                tools:layout_editor_absoluteY="289dp" />
+
+            <ImageView
+                android:id="@+id/btn_radar"
+                android:layout_width="107dp"
+                android:layout_height="107dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/btn_radar" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ui"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_hint"
+            android:layout_width="281dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="172dp"
+            android:layout_marginEnd="8dp"
+            android:background="#BD0000"
+            android:fontFamily="@font/nunito_sans_black"
+            android:padding="5dp"
+            android:text="Such nach dem roten Feurlöscher"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
