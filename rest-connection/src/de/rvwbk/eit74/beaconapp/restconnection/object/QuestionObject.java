@@ -1,8 +1,13 @@
-package object;
+package de.rvwbk.eit74.beaconapp.restconnection.object;
 
-import object.struct.ObjectCore;
-import object.struct.ObjectInterface;
+import de.rvwbk.eit74.beaconapp.restconnection.object.struct.ObjectCore;
+import de.rvwbk.eit74.beaconapp.restconnection.object.struct.ObjectInterface;
 
+/**
+ * BeaconObject
+ *
+ * @author Niclas titius
+ */
 public class QuestionObject extends ObjectCore implements ObjectInterface {
 
     public QuestionObject() {
@@ -14,11 +19,11 @@ public class QuestionObject extends ObjectCore implements ObjectInterface {
 
     @Override
     public String getObjectString() {
-        return null;
+        return "Questions";
     }
 
     @Override
     public ObjectInterface getNew() {
-        return null;
+        return new QuestionObject();
     }
 }
