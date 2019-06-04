@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Interface providing static data and needed functions
+ *
  * @author Niclas Titius
  */
 public interface ConnectionInterface {
