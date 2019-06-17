@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".DefaultQuestActivity" android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".RadarActivity"android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".RadarActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
