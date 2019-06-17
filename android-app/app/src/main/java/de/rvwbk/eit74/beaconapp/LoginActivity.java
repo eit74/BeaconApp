@@ -43,18 +43,16 @@ public class LoginActivity extends AppCompatActivity {
                     t.show();
                 } else if (pw.getText().toString().matches("")) {
                     Toast.makeText(context, "Password required", Toast.LENGTH_SHORT).show();
-                } else if(pw.getText().toString().equals("Test") && login.getText().toString().equals("Test")) {
-                    String questID = "123";
-                    Intent i = new Intent(LoginActivity.this, DefaultQuestActivity.class);
-                    i.putExtra("QuestID", questID);
-                    startActivity(i);
-
                 } else {
 
-                    AsyncConnection blah = new AsyncConnection();
-                    List<ObjectInterface> ois = blah.get(new PlayerObject(), "name", login.getText().toString());
-                    if (ois == null) {
-                        Map<Integer, String> errorMap = blah.getLatestError();
+                    // Felder gefüllt, hol dir PlayerObject vom Server
+                    AsyncConnection asycon = new AsyncConnection();
+                    List<ObjectInterface> ois = asycon.get(new PlayerObject(), "name", login.getText().toString());
+                    //User nicht gefunden
+                    if (ois == null || ois.size() == 0) {
+                        Map<Integer, String> errorMap = asycon.getLatestError();
+                        Toast.makeText(context, "User not found", Toast.LENGTH_SHORT).show();
+                       //Technische Fehler, werden absichtlich länger angezeigt als Toasts es tun würden
                         for ( Integer k: errorMap.keySet()) {
                             switch(k){
                                 case 1:
@@ -85,12 +83,20 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                     else{
+                        //Fehlendes Passwort in DB abfangen, sollte NIE auslösen
                         PlayerObject player = (PlayerObject) ois.get(0);
-                        if (true){
-
+                        if (player.get("password") == null ) {
+                            Toast.makeText(context, "Password for some reason Null", Toast.LENGTH_SHORT).show();
+                        }
+                        //Passwortabgleich, bei richtigem Passwort zu nächster Activity
+                        else if (player.get("password").equals(pw.getText().toString())){
+                            String questID = "123";
+                            Intent i = new Intent(LoginActivity.this, DefaultQuestActivity.class);
+                            i.putExtra("QuestID", questID);
+                            startActivity(i);
                         }
                         else{
-                            error.setText("Falsches Passwort");
+                            Toast.makeText(context, "Password incorrect", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
