@@ -11,9 +11,15 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //String questID = "123";
         Intent i = new Intent(this, LoginActivity.class);
-        //i.putExtra("QuestID", questID);
+      /*
+        Questaufruf zum Testen
+        String questID = "5cf63a3b7eae9301a728314e";
+        String playerIDbonki = "5cf6180e7eae9301a728314b";
+        Intent i = new Intent(this, DefaultQuestActivity.class);
+        i.putExtra("TaskID", questID);
+        i.putExtra("PlayerID", playerIDbonki);
+        */
         startActivity(i);
     }
 }
