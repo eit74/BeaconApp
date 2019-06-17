@@ -21,10 +21,15 @@ import de.rvwbk.eit74.beaconapp.restconnection.object.struct.ObjectInterface;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private LoginActivity meself;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        this.meself = this;
+
         String salt = "KJNe30fwq23er";
         String hash = "";
         final Context context = getApplicationContext();
@@ -90,9 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         //Passwortabgleich, bei richtigem Passwort zu nächster Activity
                         else if (player.get("password").equals(pw.getText().toString())){
-                            String questID = "123";
-                            Intent i = new Intent(LoginActivity.this, DefaultQuestActivity.class);
-                            i.putExtra("QuestID", questID);
+                            Intent i = new Intent(meself, RadarActivity.class);
                             startActivity(i);
                         }
                         else{

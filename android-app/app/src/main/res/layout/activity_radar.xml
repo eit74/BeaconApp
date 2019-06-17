@@ -110,7 +110,7 @@
             android:background="#BD0000"
             android:fontFamily="@font/nunito_sans_black"
             android:padding="5dp"
-            android:text="Such nach dem roten Feurlöscher"
+            android:text="Hello World"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
