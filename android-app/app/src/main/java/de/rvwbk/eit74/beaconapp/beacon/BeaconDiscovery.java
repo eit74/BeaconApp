@@ -77,12 +77,24 @@ public class BeaconDiscovery {
     private BeaconManager beaconManager = null;
     private boolean isStarted = false;
 
+    /*
+        This function starts beacon discovery.
+        All beacons which were found, will send a broadcast you can react to.
+
+        Use this function if you want to get all beacons which are next to you.
+     */
     public void startDiscovery(Activity activity) {
 
        startDiscovery(activity, new int[2]);
 
     }
 
+    /*
+        This function starts discovery for a specific beacon.
+        use the public constants for beacons as the beacon you are looking for.
+
+        Use this if you want to get a specific beacon.
+     */
     public void startDiscovery(Activity activity, int[] beacon) {
 
         if(!this.isStarted) {
