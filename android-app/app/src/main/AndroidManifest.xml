@@ -12,6 +12,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".DefaultQuestActivity" android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".RadarActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

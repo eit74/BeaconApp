@@ -49,6 +49,7 @@ public class DefaultQuestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_quest);
 
+        //Attribute mapping
         btnAnswerA = findViewById(R.id.btnAsnwerA);
         btnAnswerB = findViewById(R.id.btnAnswerB);
         btnAnswerC = findViewById(R.id.btnAnswerC);
@@ -58,22 +59,15 @@ public class DefaultQuestActivity extends AppCompatActivity {
         btnAnswers.add(btnAnswerC);
         btnAnswers.add(btnAnswerD);
 
-
         btnBack = findViewById(R.id.btnBack);
         btnContinue = findViewById(R.id.btnContinue);
 
         textTitle = findViewById(R.id.textTitle);
         textQuestion = findViewById(R.id.textQuestion);
 
+        //Intent Extra Information reading
         taskID = getIntent().getStringExtra("TaskID");
         playerID = getIntent().getStringExtra("PlayerID");
-
-        //task = QuestController.get(questID);
-        //task = new Quest("Baum oder Grün?", "Antwort A", "Antwort B", "Antwort C", "Antwort D", questID, 2);
-
-        //AsyncConnection ac = new AsyncConnection();
-        //TaskCompletionObject tco = new TaskCompletionObject();
-        //ObjectInterface list = ac.get(task, "");
 
         System.out.println("TASKS");
         AsyncConnection ac = new AsyncConnection();
@@ -85,20 +79,17 @@ public class DefaultQuestActivity extends AppCompatActivity {
         String beaconID = task.get("beacon_id");
         Integer queuePos = Integer.parseInt(task.get("queuePos"));
 
+        //Retrieve Question Object
         ac = new AsyncConnection();
         question = new QuestionObject();
         question = (QuestionObject) ac.get(question, questionID);
 
+        //DEBUG
         for (Map.Entry<String, String> entry : question.getMap().entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
 
-        /*for (ObjectInterface oi : list) {
-            for (Map.Entry<String, String> entry : ((PlayerObject) oi).getMap().entrySet()) {
-                System.out.println(entry.getKey() + " " + entry.getValue());
-            }
-        }*/
-
+        //Use the retrieved Question Object to fill in the text fields
         completed = retrieveCompleted();
 
         textTitle.setText(taskID);
@@ -109,8 +100,9 @@ public class DefaultQuestActivity extends AppCompatActivity {
         btnAnswerC.setText(question.get("answer3"));
         btnAnswerD.setText(question.get("answer4"));
 
+        //Button Listener Setup
         //Listener für die Auswahl der Antwort
-        //Setzt die Farbe
+        //Setzt außerdem die Farbe
         for (int i = 0; i < btnAnswers.size(); i++) {
             final Button b = btnAnswers.get(i);
             b.setBackgroundColor(Color.LTGRAY);
@@ -128,6 +120,7 @@ public class DefaultQuestActivity extends AppCompatActivity {
             });
         }
 
+        //Wenn Antwort schon beantwortet: Hintergrund grün
         if (completed) btnAnswers.get(new Integer(question.get("correctAnswer"))-1).setBackgroundColor(Color.GREEN);
 
         //Zeigt ob die Antwort richtig oder falsch ist
@@ -148,6 +141,11 @@ public class DefaultQuestActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * completes the current task for the current player
+     *
+     * @return result String of the AsyncConnection post
+     */
     private String completeTask() {
         if (retrieveCompleted()) return "already completed";
 
@@ -161,18 +159,23 @@ public class DefaultQuestActivity extends AppCompatActivity {
         return ac.post(tco);
     }
 
+    /**
+     * checks the api for completion of the current quest
+     *
+     * @return completion status of the current quest
+     */
     private Boolean retrieveCompleted () {
         AsyncConnection ac = new AsyncConnection();
         TaskCompletionObject tco = new TaskCompletionObject();
         List<ObjectInterface> list = ac.get(tco, "user_id", playerID);
 
-        System.out.println("START");
+        System.out.println("START - retrieveCompleted() api result Listing");
         for (ObjectInterface oi : list) {
             for (Map.Entry entry : oi.getMap().entrySet()) {
                 System.out.println(entry.getKey()+" - "+entry.getValue());
             }
         }
-        System.out.println("ENDE");
+        System.out.println("ENDE - retrieveCompleted() api result Listing");
 
         for (ObjectInterface oi : list) {
             if (oi instanceof TaskCompletionObject) {
