@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 import de.rvwbk.eit74.beaconapp.beacon.BeaconDiscovery;
 import de.rvwbk.eit74.beaconapp.dummyQuest.dummyQuestActivity;
@@ -31,6 +32,8 @@ public class RadarActivity extends AppCompatActivity {
                 // TODO: Quest aus der DB holen und mit den Daten die QuestActivity starten...
                 String beaconID = intent.getStringExtra("beaconID");
 
+                Toast.makeText(getApplicationContext(),beaconID,Toast.LENGTH_LONG).show();
+
                 if(beaconID.equals(BeaconDiscovery.BEACON_DARK_BLUE_ID)) {
                     Intent i = new Intent(meself, dummyQuestActivity.class);
                     startActivity(i);
@@ -46,12 +49,12 @@ public class RadarActivity extends AppCompatActivity {
 
         lbm = LocalBroadcastManager.getInstance(getApplicationContext());
 
+        // Start BeaconScanner Listener
+        registerReceiver();
+
         // Init BeaconScanner
         BeaconDiscovery bd = BeaconDiscovery.getInstance(getApplicationContext());
         bd.startDiscovery(this);
-
-        // Start BeaconScanner Listener
-        registerReceiver();
 
         // Start Radar Animation
         initRadarAnimation();
