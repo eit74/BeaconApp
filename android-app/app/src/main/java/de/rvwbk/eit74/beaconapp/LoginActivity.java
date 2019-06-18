@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         final TextView login = findViewById(R.id.in_loginField);
         final TextView pw = findViewById(R.id.in_pwField);
         final TextView error = findViewById(R.id.txt_errorMessage);
-        Button fab = findViewById(R.id.btn_loginButton);
+        final Button fab = findViewById(R.id.btn_loginButton);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,6 +103,14 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 }
+            }
+        });
+        pw.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    fab.performClick();
+                }
+                return false;
             }
         });
     }
