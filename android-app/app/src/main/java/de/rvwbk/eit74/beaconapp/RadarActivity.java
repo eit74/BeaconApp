@@ -16,7 +16,7 @@ import de.rvwbk.eit74.beaconapp.dummyQuest.dummyQuestActivity;
 public class RadarActivity extends AppCompatActivity {
 
     private final BroadcastReceiver broadcastReceiver;
-    private final LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getApplicationContext());
+    private LocalBroadcastManager lbm;
 
     private final RadarActivity meself;
 
@@ -43,6 +43,8 @@ public class RadarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_radar);
+
+        lbm = LocalBroadcastManager.getInstance(getApplicationContext());
 
         // Init BeaconScanner
         BeaconDiscovery bd = BeaconDiscovery.getInstance(getApplicationContext());
