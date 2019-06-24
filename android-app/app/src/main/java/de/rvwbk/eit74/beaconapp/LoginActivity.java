@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         //Passwortabgleich, bei richtigem Passwort zu nächster Activity
                         else if (player.get("password").equals(pw.getText().toString())){
-                            instance.setUserID(Integer.parseInt(player.getId()));
+                            instance.setUserID(player.getId());
                             Intent i = new Intent(LoginActivity.this, RadarActivity.class);
                             startActivity(i);
                         }

@@ -3,8 +3,8 @@ package de.rvwbk.eit74.beaconapp;
 public class userdataSingleton {
 
     public static userdataSingleton instance;
-    public int userID = 0;
-    public int nextTask = 0;
+    public String userID = "";
+    public String nextTask = "";
 
     public userdataSingleton(){}
 
@@ -14,19 +14,19 @@ public class userdataSingleton {
         return instance;
     }
 
-    public int getUserID(){
+    public String getUserID(){
         return userID;
     }
 
-    public void setUserID(int id){
+    public void setUserID(String id){
         this.userID = id;
     }
 
-    public int getNextTask() {
+    public String getNextTask() {
         return nextTask;
     }
 
-    public void setNextTask(int nextTask) {
+    public void setNextTask(String nextTask) {
         this.nextTask = nextTask;
     }
 }
