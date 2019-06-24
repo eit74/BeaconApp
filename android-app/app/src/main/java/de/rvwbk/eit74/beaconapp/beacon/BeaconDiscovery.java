@@ -103,8 +103,13 @@ public class BeaconDiscovery {
         }
 
         SystemRequirementsChecker.checkWithDefaultDialogs(activity);
+        BeaconRegion region;
+        if (beacon[0] == 0 || beacon[1] == 0) {
+            region = new BeaconRegion("discoveredRegion", null, null, null);
 
-        BeaconRegion region = new BeaconRegion("discoveredRegion", null, beacon[0], beacon[1]);
+        }else {
+            region = new BeaconRegion("discoveredRegion", null, beacon[0], beacon[1]);
+        }
 
         this.beaconManager.startRanging(region);
     }
@@ -134,7 +139,7 @@ public class BeaconDiscovery {
                     sendBroadcast(activity, major + "-" + minor);
                 }
 
-                beaconManager.stopRanging(beaconRegion);
+                //beaconManager.stopRanging(beaconRegion);
 
             }
         });
