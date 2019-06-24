@@ -139,7 +139,7 @@ public class BeaconDiscovery {
                     sendBroadcast(activity, major + "-" + minor);
                 }
 
-                //beaconManager.stopRanging(beaconRegion);
+                beaconManager.stopRanging(beaconRegion);
 
             }
         });
