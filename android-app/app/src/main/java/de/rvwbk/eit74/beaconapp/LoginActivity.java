@@ -36,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         final TextView error = findViewById(R.id.txt_errorMessage);
         final Button fab = findViewById(R.id.btn_loginButton);
 
+        final userdataSingleton instance = userdataSingleton.getInstance();
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,9 +95,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         //Passwortabgleich, bei richtigem Passwort zu nächster Activity
                         else if (player.get("password").equals(pw.getText().toString())){
-                            String questID = "123";
-                            Intent i = new Intent(LoginActivity.this, DefaultQuestActivity.class);
-                            i.putExtra("QuestID", questID);
+                            instance.setUserID(player.getId());
+                            Intent i = new Intent(LoginActivity.this, RadarActivity.class);
                             startActivity(i);
                         }
                         else{
