@@ -1,16 +1,16 @@
 package de.rvwbk.eit74.beaconapp;
 
-public class userdataSingleton {
+public class UserData {
 
-    public static userdataSingleton instance;
-    public String userID = "";
-    public String nextTask = "";
+    private static UserData instance;
+    private String userID = "";
+    private String nextTask = "";
 
-    public userdataSingleton(){}
+    private UserData(){}
 
-    public static userdataSingleton getInstance(){
+    public static UserData getInstance(){
         if (instance == null)
-            instance = new userdataSingleton();
+            instance = new UserData();
         return instance;
     }
 

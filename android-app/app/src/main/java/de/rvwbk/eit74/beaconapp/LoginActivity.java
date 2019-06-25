@@ -3,9 +3,7 @@ package de.rvwbk.eit74.beaconapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -41,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         final TextView error = findViewById(R.id.txt_errorMessage);
         final Button fab = findViewById(R.id.btn_loginButton);
 
-        final userdataSingleton instance = userdataSingleton.getInstance();
+        final UserData instance = UserData.getInstance();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
