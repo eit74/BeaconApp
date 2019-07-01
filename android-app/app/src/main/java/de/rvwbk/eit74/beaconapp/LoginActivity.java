@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         final TextView error = findViewById(R.id.txt_errorMessage);
         final Button fab = findViewById(R.id.btn_loginButton);
 
-        final userdataSingleton instance = userdataSingleton.getInstance();
+        final UserData instance = UserData.getInstance();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

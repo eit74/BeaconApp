@@ -90,6 +90,31 @@ public class BeaconDiscovery {
     }
 
     /*
+    This function starts discovery for a specific beacon.
+    use the public constants for beacons as the beacon you are looking for.
+
+    Use this if you want to get a specific beacon.
+    */
+    public void startDiscovery(Activity activity, String[] beaconMM) {
+        if (beaconMM.length!=2)
+            throw new IllegalStateException("Malformed Major-Minor!");
+
+        int major;
+        int minor;
+
+        try {
+            major = new Integer(beaconMM[0]);
+            minor = new Integer(beaconMM[1]);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("Malformed Major-Minor");
+        }
+
+        int[] intMM = {major, minor};
+
+        startDiscovery(activity, intMM);
+    }
+
+    /*
         This function starts discovery for a specific beacon.
         use the public constants for beacons as the beacon you are looking for.
 

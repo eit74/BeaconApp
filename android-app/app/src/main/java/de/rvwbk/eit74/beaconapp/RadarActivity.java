@@ -73,7 +73,7 @@ public class RadarActivity extends AppCompatActivity {
 
         // Init BeaconScanner
         BeaconDiscovery bd = BeaconDiscovery.getInstance(getApplicationContext());
-        bd.startDiscovery(this);
+        bd.startDiscovery(this, UserData.getInstance().getNextBeaconMM().split("-"));
 
         // Start Radar Animation
         initRadarAnimation();
@@ -128,6 +128,11 @@ public class RadarActivity extends AppCompatActivity {
         TaskCompletionObject tco = new TaskCompletionObject();
         List<ObjectInterface> list = ac.get(tco, "user_id", UserData.getInstance().getUserID());
         Set<String> completedTasks = new HashSet<>();
+
+        for (ObjectInterface taskCompletion : list) {
+            completedTasks.add(taskCompletion.get("task_id"));
+
+        }
 
         // get all Tasks
         AsyncConnection ac2 = new AsyncConnection();
