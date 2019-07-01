@@ -67,7 +67,7 @@ public class DefaultQuestActivity extends AppCompatActivity {
 
         //Intent Extra Information reading
         taskID = getIntent().getStringExtra("TaskID");
-        playerID = getIntent().getStringExtra("PlayerID");
+        playerID = UserData.getInstance().getUserID();
 
         System.out.println("TASKS");
         AsyncConnection ac = new AsyncConnection();

@@ -133,13 +133,13 @@ public class BeaconDiscovery {
                     String major = Integer.toString(b.getMajor());
                     String minor = Integer.toString(b.getMinor());
 
-                    Toast.makeText(activity, major + "\n" + minor, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activity, major + "\n" + minor, Toast.LENGTH_SHORT).show();
                     //Toast.makeText(activity, uuid, Toast.LENGTH_LONG).show();
 
                     sendBroadcast(activity, major + "-" + minor);
                 }
 
-                beaconManager.stopRanging(beaconRegion);
+                //beaconManager.stopRanging(beaconRegion);
 
             }
         });
